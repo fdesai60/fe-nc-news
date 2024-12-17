@@ -10,12 +10,13 @@ const SingleArticle = () => {
     const {article_id} = useParams()
     const [singleArticle,setSingleArticle]=useState([]) 
     const [comments,setComments]=useState([])
+    const [votes,setVotes]=useState(0)
   
-
     useEffect(()=>{
         getArticleById(article_id)
         .then(singleArticleData=>{
            setSingleArticle(singleArticleData)
+           setVotes(singleArticleData.votes)
         })
 
         getArticleComments(article_id)
@@ -26,8 +27,9 @@ const SingleArticle = () => {
     },[article_id])
     return ( 
         <>
+     
          <SingleArtDisp singleArticle={singleArticle}/>
-         {/* <SingleArtVotes/> */}
+         <SingleArtVotes votes={votes} setVotes={setVotes} singleArticle={singleArticle}/>
          <SingleArtComments comments={comments}/>
         </>
      );

@@ -1,5 +1,4 @@
 const CommentCard = ({comment}) => {
-    console.log(comment)
     const {article_id,author,body,comment_id,created_at,votes} = comment
     return ( 
         <>
