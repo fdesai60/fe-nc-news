@@ -1,7 +1,27 @@
-/* #root {
+#root {
   max-width: 1280px;
   margin: 0 auto;
-  padding: 2rem;
   text-align: center;
-} */
+  box-sizing: border-box;}
 
+li{
+  list-style-type:none
+}
+
+.article-list{
+  display: flex;
+  flex-wrap: wrap;
+  gap:10px
+}
+.article-card img{
+  height:200px;
+  width:200px
+}
+
+.article-card{
+  flex:1; 
+  min-width: 200px;
+  max-width: 500px;              
+  background-color: #d0c6c6;      
+  padding:10px              
+}
