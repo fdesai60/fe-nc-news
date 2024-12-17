@@ -40,3 +40,25 @@ export const getArticleById = (id)=>{
     console.log(error)
   });
 }
+
+
+export const getArticleComments = (id)=>{
+  return apiClient.get(`/articles/${id}/comments`)
+  .then(({data})=>{
+    return data.comments
+  })
+  .catch((error) => {
+    console.log(error)
+  });
+}
+
+
+// export const getArticleVotes = (id)=>{
+//   return apiClient.get(`/articles/${id}/comments`)
+//   .then(({data})=>{
+//     return data.comments
+//   })
+//   .catch((error) => {
+//     console.log(error)
+//   });
+// }
