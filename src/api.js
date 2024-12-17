@@ -25,4 +25,18 @@ export const getArticles = (topic)=>{
   .then(({data})=>{
        return data.articles
     })
+    .catch((error) => {
+      console.log(error)
+    });
+}
+
+
+export const getArticleById = (id)=>{
+  return apiClient.get(`/articles/${id}`)
+  .then(({data})=>{
+    return data.article
+  })
+  .catch((error) => {
+    console.log(error)
+  });
 }
