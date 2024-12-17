@@ -3,7 +3,7 @@ import axios from "axios";
 
 const apiClient = axios.create({
   baseURL: "https://news-lzt1.onrender.com/api",
-  timeout: 10000,
+
 });
 
 export const getTopics=()=>{
@@ -53,12 +53,14 @@ export const getArticleComments = (id)=>{
 }
 
 
-// export const getArticleVotes = (id)=>{
-//   return apiClient.get(`/articles/${id}/comments`)
-//   .then(({data})=>{
-//     return data.comments
-//   })
-//   .catch((error) => {
-//     console.log(error)
-//   });
-// }
+export const patchVote= (id,inc)=>{
+  return apiClient.patch(`/articles/${id}`,{
+    "inc_votes": inc
+    })
+  .then(({data})=>{
+    return data.article
+  })
+  .catch((error) => {
+    console.log(error)
+  });
+}
