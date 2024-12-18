@@ -7,7 +7,6 @@ const CreateComment = ({article_id,setComments}) =>
     {
     const{username,setUsername}=useContext(UsernameContext)
     const [searchTerm,setSearchTerm] = useState("")
-        console.log(article_id)
     const hanldeInput=(e)=>{
         setSearchTerm(e.target.value)
     }

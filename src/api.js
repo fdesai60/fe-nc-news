@@ -11,9 +11,7 @@ export const getTopics=()=>{
   .then(({data}) => {
    return data.topics
   })
-  .catch((error) => {
-    console.log(error)
-  });
+
 }
 
 export const getArticles = (topic)=>{
@@ -25,9 +23,7 @@ export const getArticles = (topic)=>{
   .then(({data})=>{
        return data.articles
     })
-    .catch((error) => {
-      console.log(error)
-    });
+ 
 }
 
 
@@ -36,9 +32,7 @@ export const getArticleById = (id)=>{
   .then(({data})=>{
     return data.article
   })
-  .catch((error) => {
-    console.log(error)
-  });
+ 
 }
 
 
@@ -47,9 +41,7 @@ export const getArticleComments = (id)=>{
   .then(({data})=>{
     return data.comments
   })
-  .catch((error) => {
-    console.log(error)
-  });
+ 
 }
 
 
@@ -60,9 +52,7 @@ export const patchVote= (id,inc)=>{
   .then(({data})=>{
     return data.article
   })
-  .catch((error) => {
-    console.log(error)
-  });
+ 
 }
 
 export const postComment =(id,username,body)=>{
@@ -74,8 +64,10 @@ export const postComment =(id,username,body)=>{
   
       return data.comment
   })
-  .catch((error) => {
-    console.log(username)
-    console.log(error)
-  });
+
+}
+
+export const deleteComment =(id)=>{
+  return apiClient.delete(`/comments/${id}`)
+
 }
