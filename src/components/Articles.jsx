@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import ArticleList from "./ArticleList";
 const Articles = () => {
     const [articles,setArticles]=useState([])
+    const [isLoading, setIsLoading] = useState(true);
 
     const [searchParams, setSearchParams] = useSearchParams();
     const topicQuery = searchParams.get("topic");
@@ -12,6 +13,12 @@ const Articles = () => {
         getArticles(topicQuery)
         .then(articleData=>{
             setArticles(articleData)
+        })
+        .catch(err=>{
+            console.log(err)
+        })
+        .finally(() => {
+            setIsLoading(false);
         })
    },[])
   
