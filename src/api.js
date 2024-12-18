@@ -64,3 +64,18 @@ export const patchVote= (id,inc)=>{
     console.log(error)
   });
 }
+
+export const postComment =(id,username,body)=>{
+  return apiClient.post(`/articles/${id}/comments`,{
+    username,
+    body
+  })
+  .then(({data})=>{
+  
+      return data.comment
+  })
+  .catch((error) => {
+    console.log(username)
+    console.log(error)
+  });
+}

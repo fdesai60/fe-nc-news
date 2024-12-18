@@ -7,11 +7,13 @@ import { Route } from 'react-router-dom'
 import Topics from './components/Topics'
 import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
+import Login from './components/Login'
 function App() {
  return (
   <>  
    <Header/>
       <Routes>
+        <Route path="/login" element={<Login/>}></Route>
         <Route path="/" element={<Topics/>}></Route>
         <Route path="/articles" element={<Articles/>}></Route>
         <Route path="/articles/:article_id" element={<SingleArticle/>}></Route>
