@@ -41,10 +41,11 @@ const SingleArticle = () => {
     },[article_id])
     return ( 
         <>
-     
          <SingleArtDisp singleArticle={singleArticle}/>
          <SingleArtVotes votes={votes} setVotes={setVotes} singleArticle={singleArticle}/>
          <SingleArtComments article_id={article_id} comments={comments} setComments={setComments}/>
+         
+
         </>
      );
 }

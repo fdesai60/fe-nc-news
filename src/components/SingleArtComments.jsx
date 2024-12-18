@@ -1,8 +1,9 @@
 import CommentCard from "./CommentCard";
 import CreateComment from "./CreateComment";
+import DeleteComments from "./DeleteComments";
 const SingleArtComments = ({comments,setComments,article_id}) => {
     return ( <div>
-        <h2>Comments</h2>
+        <h2>View all comments</h2>
         <ul>
             {
                 comments.map(comment=>{
@@ -12,7 +13,8 @@ const SingleArtComments = ({comments,setComments,article_id}) => {
                 })
             }
         </ul>
-        <CreateComment article_id={article_id} setComments={setComments}/> 
+        <CreateComment article_id={article_id} setComments={setComments}/>
+        <DeleteComments comments={comments}></DeleteComments> 
     </div> );
 }
  
