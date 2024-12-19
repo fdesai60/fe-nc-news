@@ -10,6 +10,7 @@ const ArticleCard = ({article}) => {
             <p>Author: {author}</p>
             <p>Topic: {topic}</p>
             <p>Votes: {votes}</p>
+            {/* <p>Date: {created_at}</p> */}
         </>
 
      );
