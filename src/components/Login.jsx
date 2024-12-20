@@ -1,36 +1,53 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UsernameContext } from "../contexts/UsernameProvider";
 import { useNavigate } from "react-router-dom";
+import { getUsers } from "../api";
+
 
 const Login = () => {
-    const [searchInput,setSearchInput]=useState("")
+    const [searchUsername,setSearchUsername]=useState("")
     const{username,setUsername}=useContext(UsernameContext)
     let navigate = useNavigate()
-   
+
     const handleChange=(e)=>{
-        setSearchInput(e.target.value)
+        setSearchUsername(e.target.value)
 
     }
-
- 
-
-    const handleSubmit=(e)=>{
-
-        e.preventDefault()
-        setUsername(searchInput)
-        navigate("/")
-        // could make get request to /users and check if valid user, then render either welocme or sign up page
-
-    }
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    
+        getUsers()
+          .then((res) => {
+              let userExists = res.some(user => user.username === searchUsername);
+              if (userExists) {
+                  setUsername(searchUsername); 
+                  navigate("/"); 
+                //THE FOLLOWING USERNAMES EXIST:
+                // tickle122
+                // grumpy19
+                // happyamy2016
+                // cooljmessy
+                // weegembump
+                // jessjelly
+              } else {
+                  alert("User not found, using a guest account."); 
+                  navigate("/"); 
+                 
+              }
+          })
+          .catch((err) => console.error("Error fetching users:", err));
+    };
+    
  
 
     return ( 
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username
-                <input type="text" onChange={handleChange} required />
+                <input type="text" onChange={handleChange} value={searchUsername} required />
             </label>
             <label htmlFor="Password">Password
                 <input type="password" required />
+                {/* db currently doesn't store passwords, so not controlling this component just yet as this can be any value for now */}
             </label>
             <button type="Submit">Login</button>
         </form>

@@ -73,3 +73,11 @@ export const deleteComment =(id)=>{
   return apiClient.delete(`/comments/${id}`)
 
 }
+
+export const getUsers= ()=>{
+  return apiClient.get("/users")
+  .then(({data})=>{
+  
+    return data.users
+})
+}
