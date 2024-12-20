@@ -1,5 +1,5 @@
 const CommentCard = ({comment}) => {
-    const {article_id,author,body,comment_id,created_at,votes} = comment
+    const {author,body,votes} = comment
     return ( 
         <>
             <div>

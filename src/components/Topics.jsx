@@ -7,6 +7,7 @@ import { UsernameContext } from "../contexts/UsernameProvider";
    
 const Topics = () => {
     const{username,setUsername}=useContext(UsernameContext)
+    const [isLoading, setIsLoading] = useState(true);
     const [topics,setTopics] = useState([])
     const [err,setErr]=useState(null)
 
@@ -23,7 +24,15 @@ const Topics = () => {
    .catch((err)=>{
     setErr(err)
    })
+   .finally(()=>{
+    setIsLoading(false)
+   })
    },[])
+
+   if(isLoading){
+    return <p>Loading...</p> 
+}
+
     return ( 
  
         <div>

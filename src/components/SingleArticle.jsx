@@ -14,31 +14,26 @@ const SingleArticle = () => {
     const [votes,setVotes]=useState(0)
 
     useEffect(()=>{
-        getArticleById(article_id)
-        .then(singleArticleData=>{
-           setSingleArticle(singleArticleData)
-           setVotes(singleArticleData.votes)
-        })
-        .catch(err=>{
-            console.log(err)
-        })
-        .finally(() => {
-            setIsLoading(false);
-          })
-        
-
-        getArticleComments(article_id)
-        .then(comments=>{
+        Promise.all([getArticleById(article_id),getArticleComments(article_id)])
+        .then(([singleArticleData,comments])=>{
+            setSingleArticle(singleArticleData)
+            setVotes(singleArticleData.votes)
             setComments(comments)
         })
-        .catch(err=>{
+         .catch(err=>{
             console.log(err)
         })
         .finally(() => {
             setIsLoading(false);
-          })
+        })
+
 
     },[article_id])
+
+    if(isLoading){
+        return <p>Loading...</p> 
+    }
+
     return ( 
         <>
          <SingleArtDisp singleArticle={singleArticle}/>

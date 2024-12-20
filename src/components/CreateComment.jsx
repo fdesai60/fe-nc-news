@@ -5,35 +5,37 @@ import { useContext } from "react";
 
 const CreateComment = ({article_id,setComments}) => 
     {
+    const [isLoading, setIsLoading] = useState(false);
     const{username,setUsername}=useContext(UsernameContext)
     const [searchTerm,setSearchTerm] = useState("")
-    const hanldeInput=(e)=>{
+    const handleInput=(e)=>{
         setSearchTerm(e.target.value)
     }
   
     const handeSubmit = (e)=>{
         e.preventDefault()
-        setSearchTerm("")
-        const temporaryComment= {article_id: Date.now(),
-            author:  username,
-            body:  searchTerm,
-            comment_id : Date.now(),
-            created_at : "2024-12-17T23:52:06.394Z",
-            votes :  0}
-        setComments(currComments=>{
-            return [...currComments,temporaryComment]
-        })
+       setIsLoading(true)
         postComment(article_id,username,searchTerm)
-        .catch(err=>{
-            console.log(err)
-            setComments(currComments=>{
-                return currComments.slice(0,-1)
+        .then((comment)=>{
+          setComments(currComments=>{
+            return [comment,...currComments]
+           
+         })
+         setSearchTerm("")
+        
+         })
+        .finally(()=>{
+            setIsLoading(false)
         })
-        })
+    }
+
+    if(isLoading){
+        return <p>Loading...</p>
     }
     
     
     return ( 
+
         <>
             <h2>Add your own comment</h2>
             <form onSubmit={handeSubmit} >
@@ -42,7 +44,7 @@ const CreateComment = ({article_id,setComments}) =>
                     name="add-comment"
                     id="add-comment" 
                     placeholder="my comment"
-                    onChange={hanldeInput}
+                    onChange={handleInput}
                     value={searchTerm}
                     required>
                     

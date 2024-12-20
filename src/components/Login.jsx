@@ -7,6 +7,7 @@ import { getUsers } from "../api";
 const Login = () => {
     const [searchUsername,setSearchUsername]=useState("")
     const{username,setUsername}=useContext(UsernameContext)
+    const [isLoading, setIsLoading] = useState(false);
     let navigate = useNavigate()
 
     const handleChange=(e)=>{
@@ -15,7 +16,7 @@ const Login = () => {
     }
     const handleSubmit = (e) => {
         e.preventDefault();
-    
+        setIsLoading(true)
         getUsers()
           .then((res) => {
               let userExists = res.some(user => user.username === searchUsername);
@@ -35,18 +36,23 @@ const Login = () => {
                  
               }
           })
-          .catch((err) => console.error("Error fetching users:", err));
+          .catch((err) => console.error("Error fetching users:", err))
+          .finally(()=>{
+            setIsLoading(false)
+          });
     };
     
- 
+    if(isLoading){
+        return <p>Loading...</p> 
+    }
 
     return ( 
         <form onSubmit={handleSubmit}>
             <label htmlFor="username">Username
-                <input type="text" onChange={handleChange} value={searchUsername} required />
+                <input type="text" onChange={handleChange} value={searchUsername} required id="username" />
             </label>
-            <label htmlFor="Password">Password
-                <input type="password" required />
+            <label htmlFor="password">Password
+                <input type="password" id="password" required />
                 {/* db currently doesn't store passwords, so not controlling this component just yet as this can be any value for now */}
             </label>
             <button type="Submit">Login</button>

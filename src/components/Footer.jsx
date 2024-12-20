@@ -1,13 +1,13 @@
 const Footer = () => {
     return ( 
-        <div>
+        <footer>
             <ul>
                 <li>Instagram</li>
                 <li>TikTok</li>
                 <li>X</li>
             </ul>
             <p>©2024 news. All rights reserved</p>
-       </div>
+       </footer>
      );
 }
  
