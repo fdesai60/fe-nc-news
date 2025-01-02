@@ -2,27 +2,33 @@ import { useState } from "react";
 import { postComment } from "../api";
 import { UsernameContext } from "../contexts/UsernameProvider";
 import { useContext } from "react";
+import Error from "./Error";
 
 const CreateComment = ({article_id,setComments}) => 
     {
+    const{username}=useContext(UsernameContext)
     const [isLoading, setIsLoading] = useState(false);
-    const{username,setUsername}=useContext(UsernameContext)
+    const [error,setError]=useState(null)
     const [searchTerm,setSearchTerm] = useState("")
     const handleInput=(e)=>{
         setSearchTerm(e.target.value)
     }
   
-    const handeSubmit = (e)=>{
+    const handleSubmit = (e)=>{
         e.preventDefault()
+        setError(null)
        setIsLoading(true)
         postComment(article_id,username,searchTerm)
         .then((comment)=>{
           setComments(currComments=>{
-            return [...currComments,comment]
+            return [comment,...currComments]
            
          })
          setSearchTerm("")
         
+         })
+         .catch((err)=>{
+            setError(err.message)
          })
         .finally(()=>{
             setIsLoading(false)
@@ -32,9 +38,10 @@ const CreateComment = ({article_id,setComments}) =>
     return ( 
 
         <>
-        {isLoading&&<p>Loading...</p>}
+            {isLoading&&<p>Loading...</p>}
+            {error && <Error error={error} />}
             <h2>Add your own comment</h2>
-            <form onSubmit={handeSubmit} >
+            <form onSubmit={handleSubmit} >
                 <label htmlFor="add-comment">Comment: 
                     <textarea
                     name="add-comment"
@@ -46,7 +53,9 @@ const CreateComment = ({article_id,setComments}) =>
                     
                     </textarea>
                 </label>
-                <button type="submit">Send</button>
+                <button type="submit" disabled={isLoading}>
+                    {isLoading ? "Sending..." : "Send"}
+                </button>
             </form>
         </>
     );

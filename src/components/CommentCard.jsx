@@ -1,11 +1,10 @@
 const CommentCard = ({comment}) => {
-    const {author,body,votes} = comment
+    const {author,body} = comment
     return ( 
         <>
             <div>
                 <h3>{author}</h3>
                 <p>{body}</p>
-                <p>votes: {votes}</p>
             </div>  
         </>
      );

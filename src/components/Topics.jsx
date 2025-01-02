@@ -4,12 +4,13 @@ import TopicList from "./TopicList";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { UsernameContext } from "../contexts/UsernameProvider";
-   
+import Error from "./Error";
+
 const Topics = () => {
-    const{username,setUsername}=useContext(UsernameContext)
+    const{username}=useContext(UsernameContext)
     const [isLoading, setIsLoading] = useState(true);
     const [topics,setTopics] = useState([])
-    const [err,setErr]=useState(null)
+    const [error,setError]=useState(null)
 
    
 
@@ -19,26 +20,28 @@ const Topics = () => {
         const topicCalledAllIncl= [{slug: 'All articles', description: 'Choose from any topic'}, ...topicData]
      
         setTopics(topicCalledAllIncl)
+        setError(null)
   
    })
    .catch((err)=>{
-    setErr(err)
+    setError(err.message)
    })
    .finally(()=>{
     setIsLoading(false)
    })
    },[])
 
-   if(isLoading){
-    return <p>Loading...</p> 
-}
+
 
     return ( 
- 
-        <div>
-            <h2>{username?`Hey ${username},`:""} Pick a topic to read!</h2>
-            <TopicList topics={topics}/>
-        </div>
+        <>
+            {error&& <Error err={error}/>}
+            {isLoading&&<p>Loading...</p> }
+            <div>
+                <h2>{username?`Hey ${username},`:""} Pick a topic to read!</h2>
+                <TopicList topics={topics}/>
+            </div>
+        </>
      );
 }
  

@@ -1,13 +1,14 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { UsernameContext } from "../contexts/UsernameProvider";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../api";
-
+import Error from "./Error";
 
 const Login = () => {
     const [searchUsername,setSearchUsername]=useState("")
-    const{username,setUsername}=useContext(UsernameContext)
+    const{setUsername}=useContext(UsernameContext)
     const [isLoading, setIsLoading] = useState(false);
+    const [error,setError]=useState(null)
     let navigate = useNavigate()
 
     const handleChange=(e)=>{
@@ -20,8 +21,10 @@ const Login = () => {
         getUsers()
           .then((res) => {
               let userExists = res.some(user => user.username === searchUsername);
+              setError(null)
               if (userExists) {
                   setUsername(searchUsername); 
+                  
                   navigate("/"); 
                 //THE FOLLOWING USERNAMES EXIST:
                 // tickle122
@@ -36,27 +39,29 @@ const Login = () => {
                  
               }
           })
-          .catch((err) => console.error("Error fetching users:", err))
+          .catch((err) => {
+            setError(err.message)
+          })
           .finally(()=>{
             setIsLoading(false)
           });
     };
     
-    if(isLoading){
-        return <p>Loading...</p> 
-    }
-
     return ( 
-        <form onSubmit={handleSubmit}>
-            <label htmlFor="username">Username
-                <input type="text" onChange={handleChange} value={searchUsername} required id="username" />
-            </label>
-            <label htmlFor="password">Password
-                <input type="password" id="password" required />
-                {/* db currently doesn't store passwords, so not controlling this component just yet as this can be any value for now */}
-            </label>
-            <button type="Submit">Login</button>
-        </form>
+        <>
+            {isLoading&&<p>Loading...</p>}
+            {error && <Error error={error} />}
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="username">Username
+                    <input type="text" onChange={handleChange} value={searchUsername} required id="username" />
+                </label>
+                <label htmlFor="password">Password
+                    <input type="password" id="password" required />
+                    {/* db currently doesn't store passwords, so not controlling this component just yet as this can be any value for now */}
+                </label>
+                <button type="Submit">Login</button>
+            </form>
+        </>
      );
 }
  

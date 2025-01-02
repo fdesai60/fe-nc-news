@@ -2,9 +2,11 @@ import { useContext, useEffect, useState } from "react";
 import { UsernameContext } from "../contexts/UsernameProvider";
 import CommentCard from "./CommentCard";
 import { deleteComment } from "../api";
+import Error from "./Error";
 const DeleteComments = ({comments}) => {
-    const {username,setUsername}=useContext(UsernameContext)
+    const {username}=useContext(UsernameContext)
     const [myComments,setMyComments]=useState([])
+    const [error,setError]=useState(null)
     const [isHidden,setIsHidden]= useState(true)
     const [isLoading, setIsLoading] = useState(false);
 
@@ -16,10 +18,11 @@ const DeleteComments = ({comments}) => {
         setIsLoading(true)
        deleteComment(id)
        .then(()=>{
+        setError(null)
         setMyComments((currComments) => currComments.filter((comment) => comment.comment_id !== id))
        })
        .catch((err)=>{
-        alert(err)
+            setError(err.message)
        })
        .finally(()=>{
         setIsLoading(false)
@@ -30,12 +33,11 @@ const DeleteComments = ({comments}) => {
     }, [comments,username]);
 
 
-    if(isLoading){
-        return <p>Loading...</p>
-    }
     
     return ( 
              <>
+             {isLoading&&<p>Loading...</p>}
+             {error && <Error error={error} />}
              <button onClick={handleDisplay}>{isHidden?"View my comments":"Hide my comments"}</button>
             {!isHidden?
             (<ul>

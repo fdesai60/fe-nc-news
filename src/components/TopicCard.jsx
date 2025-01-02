@@ -9,15 +9,16 @@ const TopicCard = ({topic}) => {
             ? <>
                     <Link to = "/articles">
                         <h2>{topic.slug}</h2>
+                        <p>{topic.description}</p> 
                     </Link>
-                    <p>{topic.description}</p> 
                 </>
                 : 
                 <>
                     <Link to = {`/articles?topic=${topic.slug}`}> 
                         <h2>{topic.slug}</h2>
+                        <p>{topic.description}</p> 
                     </Link>
-                    <p>{topic.description}</p> 
+                    
                 </>
             }
          </>
