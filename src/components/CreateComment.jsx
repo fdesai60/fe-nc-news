@@ -18,7 +18,7 @@ const CreateComment = ({article_id,setComments}) =>
         postComment(article_id,username,searchTerm)
         .then((comment)=>{
           setComments(currComments=>{
-            return [comment,...currComments]
+            return [...currComments,comment]
            
          })
          setSearchTerm("")
@@ -28,15 +28,11 @@ const CreateComment = ({article_id,setComments}) =>
             setIsLoading(false)
         })
     }
-
-    if(isLoading){
-        return <p>Loading...</p>
-    }
-    
-    
+ 
     return ( 
 
         <>
+        {isLoading&&<p>Loading...</p>}
             <h2>Add your own comment</h2>
             <form onSubmit={handeSubmit} >
                 <label htmlFor="add-comment">Comment: 
