@@ -3,6 +3,7 @@ import { UsernameContext } from "../contexts/UsernameProvider";
 import { useNavigate } from "react-router-dom";
 import { getUsers } from "../api";
 import Error from "./Error";
+import styles from "../css/Login.module.css"
 
 const Login = () => {
     const [searchUsername,setSearchUsername]=useState("")
@@ -51,16 +52,19 @@ const Login = () => {
         <>
             {isLoading&&<p>Loading...</p>}
             {error && <Error error={error} />}
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="username">Username
-                    <input type="text" onChange={handleChange} value={searchUsername} required id="username" />
-                </label>
-                <label htmlFor="password">Password
-                    <input type="password" id="password" required />
-                    {/* db currently doesn't store passwords, so not controlling this component just yet as this can be any value for now */}
-                </label>
-                <button type="Submit">Login</button>
-            </form>
+            <div className={styles.login}>
+                <h2>Login here:</h2>
+                <form className={styles.form} onSubmit={handleSubmit}>
+                    <label htmlFor="username">Username
+                        <input type="text" onChange={handleChange} value={searchUsername} required id="username" />
+                    </label>
+                    <label htmlFor="password">Password
+                        <input type="password" id="password" required />
+                        {/* db currently doesn't store passwords, so not controlling this component just yet as this can be any value for now */}
+                    </label>
+                    <button type="Submit">Login</button>
+                </form>
+            </div>
         </>
      );
 }

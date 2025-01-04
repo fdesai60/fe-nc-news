@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { useContext } from "react";
 import { UsernameContext } from "../contexts/UsernameProvider";
 import Error from "./Error";
+import styles from "../css/Topics.module.css"
 
 const Topics = () => {
     const{username}=useContext(UsernameContext)
@@ -35,7 +36,8 @@ const Topics = () => {
             {error&& <Error err={error}/>}
             {isLoading&&<p>Loading...</p> }
             <div>
-                <h2>{`Hey ${username},`} Pick a topic to read!</h2>
+                <h2 className={styles.h2}>{`Hey ${username},`} Pick a topic to read</h2>
+                <p>NOTE: You're currently using a guest account. If you already have an account, feel free to log in! </p>
                 <TopicList topics={topics}/>
             </div>
         </>

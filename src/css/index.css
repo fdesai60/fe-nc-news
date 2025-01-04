@@ -1,10 +1,13 @@
-:root {
-  --lightest: #D4C5C7;
-  --light:#6F7A69;
-  --medium:#6C6061;
-  --dark:#152614
-}
+@import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300..700;1,300..700&display=swap');
 
+:root {
+  --lightest: #FAFAFA;  
+  --light: #E6E6E6;  
+  --lightmedium: #A8A8A8;  
+  --medium: #707070;  
+  --dark: #303030; 
+  font-family: "Cormorant", serif;
+}
 *{
   box-sizing: border-box;
   

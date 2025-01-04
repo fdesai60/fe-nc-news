@@ -5,9 +5,10 @@
 }
 
 .filter div select{
-    background-color: var(--lightest);
-    padding:0.2em;
-    border-radius: 0.2em;
+    background-color: var(--lightmedium);
+    color:var(--lightest);
+    padding:0.4em;
+    border-radius: 0.5em;
     margin-left: 0.2em;
     border: 1px solid var(--light);
 }
@@ -41,8 +42,9 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    color: var(--lightest);
-    transition: color 0.3s ease, white-space 0.3s ease; 
+    color: var(--dark);
+    padding:0.5em;
+   
 }
 
 .articleCard:hover h3 {
@@ -59,6 +61,10 @@
 }
 
 .articleCard p {
-    color: var(--lightest);
+    color: var(--dark);
     margin-top: 0;
+}
+
+.articleCard:hover p {
+    color: var(--lightest);
 }

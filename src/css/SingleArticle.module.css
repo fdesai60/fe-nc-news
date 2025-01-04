@@ -1,17 +1,21 @@
 .singleArticleContainer{
     display:flex;
-    padding:1em
+    padding:1em;
 }
 .singleArticleContainer > div{
-    flex:1
+    flex:1;
+   
 }
 
 .singleArticleContainer h2{
-    background-color: var(--light);
-    color:var(--lightest);
-    padding:0.2em;
+    background-color: var(--medium);
+    color:var(--light);
+    padding:0.5em;
     border-radius: 0.5em;
+    font-size: 1em;
    
 }
+
+
 
 

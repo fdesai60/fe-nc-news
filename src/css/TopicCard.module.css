@@ -3,14 +3,17 @@
  }
 
 .eachTopic{ 
-    border:2px solid var(--light);
+    border:0.2em solid var(--light);
     padding:1em;
     margin:0.2em;
-    border-radius:0.5em
+    border-radius:0.5em;
+    background-color: var(--lightmedium);
+    
 }
 
 .eachTopic:hover{
-    background-color:var(--light);
+    background-color:var(--dark);
+    color:var(--medium)
     
   
 }
