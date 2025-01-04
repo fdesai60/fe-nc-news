@@ -2,6 +2,9 @@
     display:flex;
     padding:1em
 }
+.singleArticleContainer > div{
+    flex:1
+}
 
 .singleArticleContainer h2{
     background-color: var(--light);
@@ -10,4 +13,5 @@
     border-radius: 0.5em;
    
 }
+
 

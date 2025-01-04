@@ -13,11 +13,11 @@ const SingleArtComments = ({comments,setComments,article_id}) => {
 
   return ( 
     <div className={styles.comments}>
-        <button onClick={handleClick}>Show comments</button>
+        <button onClick={handleClick}>{isClicked?"Hide comments":"Read comments"}</button>
         {comments.length===0?<p>Be the first to comment on this article!</p>:(  <ul className={isClicked?styles.dispCommentsList:styles.hideCommentsList}>
             {
                 comments.map((comment)=>{
-                    return <li key={comment.comment_id}>
+                    return <li className={styles.commentLi} key={comment.comment_id}>
                         <CommentCard comment={comment}/>
                     </li>
                 })

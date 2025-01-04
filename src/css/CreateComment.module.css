@@ -1,4 +1,4 @@
-.form{
+.dispForm{
     margin-top: 0.3em;
     display: flex;
     justify-content: center;
@@ -6,15 +6,19 @@
 }
 
 
-.form *{
+.dispForm *{
     background-color: var(--lightest);
     color:var(--medium);
     border:1px solid var(--light);
     border-radius: 0.5em;
 }
 
-.form button:hover{
+.dispForm button:hover{
     background-color: var(--light);
     color: var(--lightest);
 
 } 
+
+.hideForm{
+    display: none;
+}

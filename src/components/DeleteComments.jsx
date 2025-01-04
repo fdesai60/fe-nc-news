@@ -3,6 +3,7 @@ import { UsernameContext } from "../contexts/UsernameProvider";
 import CommentCard from "./CommentCard";
 import { deleteComment } from "../api";
 import Error from "./Error";
+import styles from "../css/DeleteComments.module.css"
 const DeleteComments = ({comments}) => {
     const {username}=useContext(UsernameContext)
     const [myComments,setMyComments]=useState([])
@@ -35,21 +36,22 @@ const DeleteComments = ({comments}) => {
 
     
     return ( 
-             <>
-             {isLoading&&<p>Loading...</p>}
-             {error && <Error error={error} />}
-             <button onClick={handleDisplay}>{isHidden?"View my comments":"Hide my comments"}</button>
-            {!isHidden?
-            (<ul>
-                {myComments.map(myComm=>{
-                    return <li key={myComm.comment_id}>
-                        <CommentCard comment ={myComm}/>
-                        <button onClick={()=>handleDelete(myComm.comment_id)} >🗑️</button>
-                        </li>
-                })}
-             </ul>):null}
-        </>
-  
+        <>
+        {isLoading&&<p>Loading...</p>}
+        {error && <Error error={error} />}
+        <button onClick={handleDisplay}>{isHidden?"View my comments":"Hide my comments"}</button>
+       {!isHidden && myComments.length>0?
+       (<ul>
+           {myComments.map(myComm=>{
+               return <li className={styles.commentLi} key={myComm.comment_id}>
+                   <CommentCard comment ={myComm}/>
+                   <button className={styles.delButton} onClick={()=>handleDelete(myComm.comment_id)} >🗑️</button>
+                   </li>
+
+
+           })}
+        </ul>):!isHidden?<p>Make your first comment on this article!</p>:null}
+   </>
     );
 }
  

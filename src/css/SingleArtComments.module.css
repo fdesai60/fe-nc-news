@@ -1,9 +1,11 @@
 .comments{
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
+    gap:1em
 }
 
-.comments button{
+.comments > button{
     margin:0;
     background-color: var(--light);
     color:var(--lightest);
@@ -20,6 +22,7 @@
 }
 
 
+
 .dispCommentsList{
     display: flex;
     flex-direction: column;
@@ -29,4 +32,10 @@
 
 .hideCommentsList{
     display: none;
+}
+
+
+.commentLi{
+    border-bottom: 2px solid var(--medium);
+    
 }
