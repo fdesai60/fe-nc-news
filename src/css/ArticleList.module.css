@@ -12,55 +12,53 @@
     border: 1px solid var(--light);
 }
 
+
 .articleList {
     display: flex;
+    justify-content: center;
     flex-wrap: wrap; 
-    gap: 20px; 
-  }
-  
+    gap: 1em; 
+    padding:0;
+}
+
 .articleCard {
-    flex: 1;
+    flex: 1 1 200px;
+    max-width: 200px; 
+    min-height: 300px; 
     background-color: var(--light);
     border-radius: 0.5em;
-    padding: 10px;
-    max-width: 200px; 
-    margin-bottom: 20px; 
-    padding:0.2em;
+    padding: 0.1em;
+    transition: transform 0.3s ease; 
+    margin-bottom: 0.5em;
 }
 
-.articleCard:hover{
+.articleCard:hover {
     background-color: var(--medium);
-
+    transform: scale(1.05); 
 }
-
-.articleCard:hover h3{
-    overflow: visible;
-    white-space: wrap; 
-    
-}
-
 
 .articleCard h3 {
-    overflow: hidden; 
-    white-space: nowrap; 
+    overflow: hidden;
+    white-space: nowrap;
     text-overflow: ellipsis;
-    color:var(--lightest);
+    color: var(--lightest);
+    transition: color 0.3s ease, white-space 0.3s ease; 
+}
+
+.articleCard:hover h3 {
+    white-space: normal; 
+    color: var(--lightest);
 }
 
 .articleCard img {
     width: 100%;
     height: auto;
     object-fit: cover;
-    max-height: 200px;
+    max-height: 150px; 
     margin-bottom: 10px;
 }
 
-.articleCard p{
-    color:var(--lightest);
-
-}
-
-.articleCard p:first-of-type{
+.articleCard p {
+    color: var(--lightest);
     margin-top: 0;
- 
- }
+}

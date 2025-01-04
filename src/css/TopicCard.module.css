@@ -11,6 +11,14 @@
 
 .eachTopic:hover{
     background-color:var(--light);
-    color:var(--medium);
-    font-size: large;
+    
+  
+}
+
+.eachTopic:hover *{
+    color:var(--lightest);
+}
+
+.eachTopic:hover h3{
+    font-size: 1.8em;
 }

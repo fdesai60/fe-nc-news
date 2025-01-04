@@ -1,6 +1,16 @@
+.comments{
+    display: flex;
+    flex-direction: column;
+}
 
-.comments h2{
+.comments button{
     margin:0;
+    background-color: var(--light);
+    color:var(--lightest);
+    padding: 0.2em;
+    border-radius: 0.5em;
+    border: none;
+    font-size: 1.5em;
 
 }
 
@@ -9,3 +19,14 @@
     
 }
 
+
+.dispCommentsList{
+    display: flex;
+    flex-direction: column;
+    margin-top: 0;
+}
+
+
+.hideCommentsList{
+    display: none;
+}

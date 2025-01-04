@@ -40,7 +40,7 @@ const CreateComment = ({article_id,setComments}) =>
         <>
             {isLoading&&<p>Loading...</p>}
             {error && <Error error={error} />}
-            <h2>Add your own comment</h2>
+            <button>Add your own comment</button>
             <form className={styles.form} onSubmit={handleSubmit} >
                 <textarea
                 name="add-comment"

@@ -2,12 +2,19 @@ import CommentCard from "./CommentCard";
 import CreateComment from "./CreateComment";
 import DeleteComments from "./DeleteComments";
 import styles from "../css/SingleArtComments.module.css"
+import { useState } from "react";
 const SingleArtComments = ({comments,setComments,article_id}) => {
-  
+    const [isClicked,setIsClicked]=useState(false)
+    const handleClick=()=>{
+        setIsClicked((curr)=>{
+            return !curr
+        })
+    }
+
   return ( 
     <div className={styles.comments}>
-        <h2>View all comments</h2>
-        {comments.length===0?<p>Be the first to comment on this article!</p>:(  <ul>
+        <button onClick={handleClick}>Show comments</button>
+        {comments.length===0?<p>Be the first to comment on this article!</p>:(  <ul className={isClicked?styles.dispCommentsList:styles.hideCommentsList}>
             {
                 comments.map((comment)=>{
                     return <li key={comment.comment_id}>
