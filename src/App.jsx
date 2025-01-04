@@ -1,7 +1,6 @@
 
 import Header from './components/Header'
 import Footer from './components/Footer'
-import './App.css'
 import { Routes } from 'react-router-dom'
 import { Route } from 'react-router-dom'
 import Topics from './components/Topics'

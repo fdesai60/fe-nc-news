@@ -13,19 +13,23 @@ const ArticleList = ({order,setOrder,articles,setSortBy,sortBy}) => {
 
     return ( 
         <>
-           <form >
-                <label htmlFor="sort-articles">Sort your articles by:</label>
-                <select name="sort-articles" id="sort-articles" value ={sortBy} onChange={handleSortBy}>
-                    <option value="created_at">Date</option>
-                    <option value="author">Author</option> 
-                    <option value="votes">Votes</option>   
-                </select>
+           <form className={styles.filter} >
+                <div className={styles.sort}>
+                    <label htmlFor="sort-articles">Sort your articles by:</label>
+                    <select name="sort-articles" id="sort-articles" value ={sortBy} onChange={handleSortBy}>
+                        <option value="created_at">Date</option>
+                        <option value="author">Author</option> 
+                        <option value="votes">Votes</option>   
+                    </select>
+                </div>
                 
-                <label htmlFor="order-articles">Order:</label>
-                <select name="order-articless" id="order-articles" value ={order} onChange={handleOrder}>
-                    <option value="asc">Ascending</option>
-                    <option value="desc">Descending</option> 
-                </select>
+                <div className={styles.order}>
+                    <label htmlFor="order-articles">Order:</label>
+                    <select name="order-articless" id="order-articles" value ={order} onChange={handleOrder}>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option> 
+                    </select>
+                </div>
             </form>
            
         <ul className = {styles.articleList}>

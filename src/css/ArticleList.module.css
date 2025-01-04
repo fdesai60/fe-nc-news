@@ -1,3 +1,17 @@
+.filter{
+    display: flex;
+    justify-content: center;
+    gap:1em
+}
+
+.filter div select{
+    background-color: var(--lightest);
+    padding:0.2em;
+    border-radius: 0.2em;
+    margin-left: 0.2em;
+    border: 1px solid var(--light);
+}
+
 .articleList {
     display: flex;
     flex-wrap: wrap; 
@@ -14,12 +28,17 @@
     padding:0.2em;
 }
 
-
-.articleCard p{
-    margin:0.2em;
-    color:var(--lightest);
+.articleCard:hover{
+    background-color: var(--medium);
 
 }
+
+.articleCard:hover h3{
+    overflow: visible;
+    white-space: wrap; 
+    
+}
+
 
 .articleCard h3 {
     overflow: hidden; 
@@ -35,3 +54,13 @@
     max-height: 200px;
     margin-bottom: 10px;
 }
+
+.articleCard p{
+    color:var(--lightest);
+
+}
+
+.articleCard p:first-of-type{
+    margin-top: 0;
+ 
+ }
