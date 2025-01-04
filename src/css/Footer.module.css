@@ -1,0 +1,15 @@
+
+.footer{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+.contact{
+    display: flex;
+    gap:0.5em
+    
+}
+
+
+

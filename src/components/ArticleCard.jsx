@@ -5,7 +5,7 @@ const ArticleCard = ({article}) => {
     return ( 
        <>
         <Link to ={`/articles/${article_id}`} >
-            <h2>{title}</h2>
+            <h3>{title.toLowerCase()}</h3>
             <img src={article_img_url} alt="img" />
             <p>Author: {author}</p>
             <p>Topic: {topic}</p>

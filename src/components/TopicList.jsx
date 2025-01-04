@@ -1,11 +1,9 @@
-
 import TopicCard from "./TopicCard";
+import styles from '../css/TopicList.module.css'
 const TopicList = ({topics}) => {
   
-    return ( 
-        <>
-          
-        <div>
+    return (    
+        <div className={styles.topicContainer}>
             { <ul>
                 {
                     topics.map(topic=>{
@@ -14,7 +12,7 @@ const TopicList = ({topics}) => {
                 }
             </ul> }
         </div>
-       </>
+    
      );
 }
  

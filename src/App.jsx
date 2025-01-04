@@ -9,20 +9,23 @@ import Articles from './components/Articles'
 import SingleArticle from './components/SingleArticle'
 import Login from './components/Login'
 import NotFound from './components/NotFound'
+import styles from "./css/App.module.css"
 function App() {
  return (
-  <>  
-   <Header/>
-      <Routes>
-        <Route path="/login" element={<Login/>}></Route>
-        <Route path="/" element={<Topics/>}></Route>
-        <Route path="/articles" element={<Articles/>}></Route>
-        <Route path="/articles/:article_id" element={<SingleArticle/>}></Route>
-        <Route path="*" element={<NotFound/>}></Route>
+  <div className={styles.wrapper}>
+  <Header />
+  <main className={styles.main}>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/" element={<Topics />} />
+      <Route path="/articles" element={<Articles />} />
+      <Route path="/articles/:article_id" element={<SingleArticle />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  </main>
+  <Footer />
+</div>
 
-      </Routes>
-   <Footer/>
-  </>
  )
 }
 

@@ -1,12 +1,17 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+import styles from "../css/Header.module.css"
 
-const Header = () => {   
+const Header = () => {
+    const handleActive = ({ isActive }) =>
+        {
+        return isActive ? styles.active : ''   
+    }
     return ( 
-        <header>
+        <header className={styles.header}>
             <h1>NEWS</h1>
-            <nav>
-                <Link to="/login">Login </Link>
-                <Link to="/">Topics</Link>
+            <nav className={styles.headerNav}>
+                <NavLink className={handleActive} to="/login">Login </NavLink>
+                <NavLink className={handleActive}  to="/">Topics</NavLink>
             </nav>
         </header>
      );

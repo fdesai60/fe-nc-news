@@ -1,0 +1,31 @@
+:root {
+  --lightest: #D4C5C7;
+  --light:#6F7A69;
+  --medium:#6C6061;
+  --dark:#152614
+}
+
+*{
+  box-sizing: border-box;
+  
+
+}
+
+body{
+  background-color: var(--lightest);
+  color:var(--dark);
+  max-width: 1280px;
+  text-align: center;
+ 
+}
+
+a{
+  color:var(--dark);
+  text-decoration: none;
+}
+
+li{
+  list-style-type: none;
+}
+
+

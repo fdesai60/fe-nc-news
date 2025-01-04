@@ -1,0 +1,25 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.headerNav{
+    display: flex;
+    gap:1em;
+}
+
+  
+.headerNav a{
+    padding:0.5em;
+    color: var(--dark);
+   
+
+}
+
+.headerNav .active { 
+    background-color: var(--medium);
+    color: var(--lightest);
+    border-radius: 0.5em ;
+   
+}

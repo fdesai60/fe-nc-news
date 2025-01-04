@@ -30,15 +30,12 @@ const Topics = () => {
     setIsLoading(false)
    })
    },[])
-
-
-
     return ( 
         <>
             {error&& <Error err={error}/>}
             {isLoading&&<p>Loading...</p> }
             <div>
-                <h2>{username?`Hey ${username},`:""} Pick a topic to read!</h2>
+                <h2>{`Hey ${username},`} Pick a topic to read!</h2>
                 <TopicList topics={topics}/>
             </div>
         </>

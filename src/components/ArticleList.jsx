@@ -1,5 +1,5 @@
 import ArticleCard from "./ArticleCard";
-
+import styles from "../css/ArticleList.module.css"
 const ArticleList = ({order,setOrder,articles,setSortBy,sortBy}) => {
    
     
@@ -28,9 +28,9 @@ const ArticleList = ({order,setOrder,articles,setSortBy,sortBy}) => {
                 </select>
             </form>
            
-        <ul className = "article-list">
+        <ul className = {styles.articleList}>
             {articles.map(article=>{
-                return <li  className = "article-card" key={article.article_id}>
+                return <li  className = {styles.articleCard} key={article.article_id}>
                         <ArticleCard article={article}/>
                     </li> 
             })}
