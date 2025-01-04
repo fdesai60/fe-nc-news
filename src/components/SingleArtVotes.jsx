@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { patchVote } from "../api"
 import Error from "./Error"
+import styles from "../css/SingleArtVotes.module.css"
+
 const SingleArtVotes = ({votes, setVotes,singleArticle}) => {
     const [hasVoted,setHasVoted]= useState(false)
     const [error,setError]=useState(null)
@@ -41,10 +43,12 @@ const SingleArtVotes = ({votes, setVotes,singleArticle}) => {
         <>
             {error&& <Error error={error}/>}
             <div>
-                <h2>Votes</h2>
-                {hasVoted?<button disabled>Thanks for voting!</button>:<button onClick={handleVoteInc}>+</button>}
-                <h3>{votes}</h3>
-                {hasVoted?<button disabled>Thanks for voting!</button>:<button onClick={handleVoteDec}>-</button>}
+                <h2 className={styles.h2}>Votes</h2>
+                <div className={styles.voteContainer}>
+                    {hasVoted?<button disabled>Thanks for voting!</button>:<button onClick={handleVoteInc}>+</button>}
+                    <h3>{votes}</h3>
+                    {hasVoted?<button disabled>Thanks for voting!</button>:<button onClick={handleVoteDec}>-</button>}
+                </div>
             </div>
           </>
      );

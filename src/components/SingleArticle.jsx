@@ -6,6 +6,7 @@ import SingleArtComments from "./SingleArtComments";
 import { getArticleComments } from "../api";
 import SingleArtVotes from "./SingleArtVotes";
 import Error from "./Error";
+import styles from "../css/SingleArticle.module.css"
 
 const SingleArticle = () => {
     const {article_id} = useParams()
@@ -38,10 +39,13 @@ const SingleArticle = () => {
         <>
         {isLoading&&<p>Loading...</p> }
         {error && <Error error={error} />}
-         <SingleArtDisp singleArticle={singleArticle}/>
-         <SingleArtVotes votes={votes} setVotes={setVotes} singleArticle={singleArticle}/>
-         <SingleArtComments article_id={article_id} comments={comments} setComments={setComments}/>
-         
+        <div className={styles.singleArticleContainer}>
+            <div>
+                <SingleArtDisp singleArticle={singleArticle}/>
+                <SingleArtVotes  votes={votes} setVotes={setVotes} singleArticle={singleArticle}/>
+            </div>
+            <SingleArtComments  article_id={article_id} comments={comments} setComments={setComments}/>
+         </div>
 
         </>
      );

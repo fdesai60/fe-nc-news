@@ -1,0 +1,18 @@
+.voteContainer{
+    display: flex;
+    justify-content: space-evenly;
+    width: 90%;
+
+}
+
+.voteContainer *{
+    flex:1;
+    border-radius: 0.5em;
+    background-color: var(--lightest);
+    font-size: 2em;
+    padding:0
+}
+
+.h2{
+    width:90%
+}

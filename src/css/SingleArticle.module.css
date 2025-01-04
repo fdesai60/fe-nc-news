@@ -1,0 +1,13 @@
+.singleArticleContainer{
+    display:flex;
+    padding:1em
+}
+
+.singleArticleContainer h2{
+    background-color: var(--light);
+    color:var(--lightest);
+    padding:0.2em;
+    border-radius: 0.5em;
+   
+}
+

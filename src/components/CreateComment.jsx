@@ -3,7 +3,7 @@ import { postComment } from "../api";
 import { UsernameContext } from "../contexts/UsernameProvider";
 import { useContext } from "react";
 import Error from "./Error";
-
+import styles from "../css/CreateComment.module.css"
 const CreateComment = ({article_id,setComments}) => 
     {
     const{username}=useContext(UsernameContext)
@@ -41,18 +41,16 @@ const CreateComment = ({article_id,setComments}) =>
             {isLoading&&<p>Loading...</p>}
             {error && <Error error={error} />}
             <h2>Add your own comment</h2>
-            <form onSubmit={handleSubmit} >
-                <label htmlFor="add-comment">Comment: 
-                    <textarea
-                    name="add-comment"
-                    id="add-comment" 
-                    placeholder="my comment"
-                    onChange={handleInput}
-                    value={searchTerm}
-                    required>
-                    
-                    </textarea>
-                </label>
+            <form className={styles.form} onSubmit={handleSubmit} >
+                <textarea
+                name="add-comment"
+                id="add-comment" 
+                placeholder="My comment"
+                onChange={handleInput}
+                value={searchTerm}
+                required>  
+                </textarea>
+                
                 <button type="submit" disabled={isLoading}>
                     {isLoading ? "Sending..." : "Send"}
                 </button>
