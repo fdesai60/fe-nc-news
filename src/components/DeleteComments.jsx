@@ -4,6 +4,7 @@ import CommentCard from "./CommentCard";
 import { deleteComment } from "../api";
 import Error from "./Error";
 import styles from "../css/DeleteComments.module.css"
+
 const DeleteComments = ({comments}) => {
     const {username}=useContext(UsernameContext)
     const [myComments,setMyComments]=useState([])
@@ -37,10 +38,10 @@ const DeleteComments = ({comments}) => {
         <div className="delComments">
             { myComments.length>0
             ? (
-            <ul>
+            <ul className={styles.dispCommentsList}>
                 {myComments.map(myComm=>{
                     return <li 
-                    className={styles.commentLi} key={myComm.comment_id}>
+                    className={styles.commentLi } key={myComm.comment_id}>
                         <CommentCard comment ={myComm}/>
                         <button className={styles.delButton} 
                             onClick={()=>{

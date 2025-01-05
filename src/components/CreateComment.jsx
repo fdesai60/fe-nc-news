@@ -35,8 +35,6 @@ const CreateComment = ({article_id,setComments}) =>
             setIsLoading(false)
         })
     }
-
-    
  
     return ( 
         <>

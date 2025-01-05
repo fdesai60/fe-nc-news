@@ -9,7 +9,7 @@
 .nav > ul > li{
     background-color: var(--lightmedium);
     flex:1;
-    padding:0.5em;
+    padding:0.5em ;
     border-radius: 0.5em ;
     
 }
@@ -27,8 +27,9 @@
     background-color: var(--dark);
     border-radius: 0 0 0.5em 0.5em;
     display: inline-block;
-    padding:1em; 
+    padding:1em 0; 
     transform: translatey(-0.5em);
+     
    
 }
 .expand ul{
@@ -39,8 +40,11 @@
 .expand ul li {
     border-bottom:1px solid var(--light);
     padding:0.5em;
-    
+    width:70%;
+    margin:0 auto
 }
+
+
 
 .expand ul li button{
     color:var(--lightest);
@@ -49,6 +53,22 @@
 }
 
 
+ .expand ul li:hover {
+    border: 2px solid var(--lightmedium);
+   
+ }
+
+
+ @media screen and (min-width: 1024px) {
+    /* .disp > * {
+      max-width: 1200px; 
+    } */
+
+    .expand {
+        padding:0.3em 3em ;  
+    }
+
+}
 
 
 

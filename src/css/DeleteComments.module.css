@@ -1,17 +1,55 @@
-/* .delButton{
-    background-color: var(--lightest);
-    border:none;
-    font-size: 1.5em;
-  
-
-}
-
-.delButton:hover{
-   font-size: 2em;
+/* .dispCommentsList{
+    padding:0 3em;
+ 
 }
 
 .commentLi{
- 
+    border-right: 2px solid var(--medium);
     border-bottom: 2px solid var(--medium);
+    background-color:var(--light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    padding:0.3em;
+}
+
+.commentLi div > *{
+    margin:0.3em
+}
+
+.delButton{
+    background-color: var(--light);
+    border:none;
+    font-size:2em
 } */
+
+
+.commentLi{
+    border-right: 2px solid var(--medium);
+    border-bottom: 2px solid var(--medium);
+    background-color:var(--light);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    margin-bottom:1em;
+    padding:0.5em
  
+}
+
+.commentLi div h3{
+   margin-bottom:0.2em;
+  
+  
+ }
+
+.commentLi div p{
+   margin:0
+ 
+}
+
+.dispCommentsList{
+    padding:0 3em
+}
+
+
+.delButton{
+    background-color: var(--light);
+    border:none;
+    font-size:2em
+}

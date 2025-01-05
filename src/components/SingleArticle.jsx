@@ -58,7 +58,7 @@ const SingleArticle = () => {
                     <NavLink
                       to={`/articles/${article_id}/comments`}
                       onClick={handleCommentsClick}
-                       >Comments</NavLink>
+                       >{expand?"Hide dropdown":"Comments"}</NavLink>
                 </li>
                 <li>
                     <NavLink  to={`/articles/${article_id}/vote`} >Vote</NavLink>

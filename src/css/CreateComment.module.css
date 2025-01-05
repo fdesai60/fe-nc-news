@@ -5,6 +5,11 @@
     gap:0.3em
 }
 
+.dispForm textarea{
+    width: 80%;    
+    height: 150px; 
+    resize: both;
+}
 
 .dispForm *{
     background-color: var(--light);
@@ -17,8 +22,69 @@
     background-color: var(--medium);
     color: var(--lightest);
 
-} 
+}  */
 
-.hideForm{
-    display: none;
+/* .dispForm {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 0.3em;
+    margin:0 auto;
+    padding:3em
+}
+
+.dispForm textarea{
+    padding:5em
 } */
+
+
+
+/* 
+.dispForm textarea {
+    width: 80%;
+    height: 150px;
+    resize: both;
+    
+} */
+
+.dispForm {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    justify-content: center; 
+    gap: 1em;
+    max-width: 50%;       
+    padding: 2em;
+    background-color: var(--lightmedium); 
+    border-radius: 0.5em;    
+    margin:2em auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2)
+}
+
+.dispForm > *{
+    background-color: var(--lightest);
+    color: var(--lightmedium);
+    border-radius: 0.5em; 
+    border:1px solid var(--medium)
+}
+
+.dispForm textarea {
+    width: 300px;           
+    height: 150px;          
+    padding: 0.5em;
+
+}
+
+.dispForm button {   
+    padding: 0.6em 1.2em;         
+    font-size: 1em;         
+   border:none;
+}
+
+
+
+.dispForm button:hover {
+    background-color: var(--medium); 
+    color:var(--lightest);
+    padding: 0.6em 3em; 
+}

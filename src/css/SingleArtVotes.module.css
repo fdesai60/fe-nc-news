@@ -2,17 +2,13 @@
     display: flex;
     justify-content: space-evenly;
     width: 90%;
-
+    margin:0 auto
 }
 
 .voteContainer *{
     flex:1;
     border-radius: 0.5em;
-    background-color: var(--lightest);
     font-size: 2em;
-    padding:0
+    
 }
 
-.h2{
-    width:90%
-}

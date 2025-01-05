@@ -7,6 +7,8 @@ const SingleArtVotes = ({votes, setVotes,singleArticle}) => {
     const [hasVoted,setHasVoted]= useState(false)
     const [error,setError]=useState(null)
 
+
+
   
     const handleVoteInc=()=>{
      
@@ -44,17 +46,16 @@ const SingleArtVotes = ({votes, setVotes,singleArticle}) => {
     return ( 
         <>
             {error&& <Error error={error}/>}
-            <div>
-                <div className={styles.voteContainer}>
-                <button disabled={hasVoted}
-                        onClick={handleVoteInc}>+
+            <div className={styles.voteContainer}>
+            <button disabled={hasVoted}
+                    onClick={handleVoteInc}>+
+            </button>
+            <h3>{votes}</h3>
+            <button disabled={hasVoted}
+                    onClick={handleVoteDec}>-
                 </button>
-                <h3>{votes}</h3>
-                <button disabled={hasVoted}
-                        onClick={handleVoteDec}>-
-                    </button>
-                </div>
             </div>
+        
           </>
      );
 }
