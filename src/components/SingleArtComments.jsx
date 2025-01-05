@@ -12,22 +12,32 @@ const SingleArtComments = ({comments,setComments,article_id}) => {
     }
 
   return ( 
-    <div className={styles.comments}>
-        <button  onClick={handleClick}>{isClicked?"Hide comments":"Read comments"}</button>
-        {comments.length===0?<p>Be the first to comment on this article!</p>:(  <ul className={isClicked?styles.dispCommentsList:styles.hideCommentsList}>
-            {
-                comments.map((comment)=>{
-                    return <li className={styles.commentLi} key={comment.comment_id}>
-                        <CommentCard comment={comment}/>
-                    </li>
-                })
+        null
+
+
+    // <div className={styles.comments}>
+    //     <button  onClick={handleClick}>{isClicked?"Hide comments":"Read comments"}</button>
+    //     {comments.length===0 && <p>Be the first to comment on this article!</p>}
+        
+    //     <ul 
+    //     className={isClicked?styles.dispCommentsList:styles.hideCommentsList}>
+    //         {
+    //             comments.map((comment)=>{
+    //                 return <li className={styles.commentLi} key={comment.comment_id}>
+    //                     <CommentCard comment={comment}/>
+    //                      </li>
+    //             })
                 
-            }
-        </ul>)}
+    //         }
+    //     </ul>
       
-        <CreateComment article_id={article_id} setComments={setComments}/>
-        <DeleteComments comments={comments}></DeleteComments> 
-    </div> );
+    //     <CreateComment article_id={article_id} setComments={setComments}/>
+    //     <DeleteComments comments={comments}></DeleteComments> 
+    // </div> 
+    
+    
+    
+);
 }
  
 export default SingleArtComments;

@@ -18,7 +18,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/" element={<Topics />} />
       <Route path="/articles" element={<Articles />} />
-      <Route path="/articles/:article_id" element={<SingleArticle />} />
+      <Route path="/articles/:article_id/*" element={<SingleArticle />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </main>

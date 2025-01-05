@@ -7,6 +7,8 @@ import { getArticleComments } from "../api";
 import SingleArtVotes from "./SingleArtVotes";
 import Error from "./Error";
 import styles from "../css/SingleArticle.module.css"
+import { NavLink } from "react-router-dom";
+import { Routes,Route } from "react-router-dom";
 
 const SingleArticle = () => {
     const {article_id} = useParams()
@@ -15,6 +17,11 @@ const SingleArticle = () => {
     const [singleArticle,setSingleArticle]=useState([]) 
     const [comments,setComments]=useState([])
     const [votes,setVotes]=useState(0)
+    const [expand,setExpand]=useState(false)
+
+   const handleCommentsClick=(e)=>{
+        setExpand(curr=>!curr)
+   }
 
     useEffect(()=>{
         Promise.all([getArticleById(article_id),getArticleComments(article_id)])
@@ -30,21 +37,61 @@ const SingleArticle = () => {
         .finally(() => {
             setIsLoading(false);
         })
-
-
     },[article_id])
-
-  
+   
     return ( 
         <>
         {isLoading&&<p>Loading...</p> }
         {error && <Error error={error} />}
-        <div className={styles.singleArticleContainer}>
-            <div>
-                <SingleArtDisp singleArticle={singleArticle}/>
-                <SingleArtVotes  votes={votes} setVotes={setVotes} singleArticle={singleArticle}/>
-            </div>
-            <SingleArtComments  article_id={article_id} comments={comments} setComments={setComments}/>
+        <nav className={styles.nav}>
+            <ul>
+                <li>
+                    <NavLink to={`/articles/${article_id}/read`} >Read</NavLink>
+                </li>
+                <li>
+                     
+                    <NavLink
+                      to={`/articles/${article_id}/comments`}
+                      onClick={handleCommentsClick}
+                       >Comments</NavLink>
+                </li>
+                <li>
+                    <NavLink  to={`/articles/${article_id}/vote`} >Vote</NavLink>
+                </li>
+            </ul>
+        </nav>
+        
+        {expand && 
+            <div className={styles.expand}>
+                <ul>
+                  <li>
+                    <NavLink to={`/articles/${article_id}/comments/view`}
+                    >View Comments</NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={`/articles/${article_id}/comments/add`}>Add Comments </NavLink>
+                  </li>
+                  <li>
+                    <NavLink to={`/articles/${article_id}/comments/delete`}>Delete Comment</NavLink>
+                  </li>
+                </ul>
+              </div> }
+
+         <div className={styles.routing}>
+            <Routes>
+                <Route
+                    path="/read"
+                    element={<SingleArtDisp singleArticle={singleArticle} />}
+                />
+                <Route
+                    path="/comments"
+                    element={<SingleArtComments comments={comments} />}
+                />
+                <Route
+                    path="/vote"
+                    element={<SingleArtVotes votes={votes} setVotes={setVotes} />}
+                />
+            </Routes>
          </div>
 
         </>

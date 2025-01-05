@@ -5,9 +5,11 @@ const SingleArtDisp = ({singleArticle}) => {
  
     return ( 
         <div className={styles.disp}>
-            <img className={styles.img} src={article_img_url} alt="img" />
             <h2>{title}</h2>
-            <p>{body}</p>
+            <div>
+                <img className={styles.img} src={article_img_url} alt="img" />
+                <p>{body}</p>
+            </div>
            
         </div>
      );
