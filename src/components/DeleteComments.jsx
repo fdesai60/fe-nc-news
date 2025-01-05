@@ -43,7 +43,7 @@ const DeleteComments = ({comments}) => {
                     return <li 
                     className={styles.commentLi } key={myComm.comment_id}>
                         <CommentCard comment ={myComm}/>
-                        <button className={styles.delButton} 
+                        <button disabled={isLoading} className={styles.delButton} 
                             onClick={()=>{
                                 handleDelete(myComm.comment_id)
                                 } }>🗑️
