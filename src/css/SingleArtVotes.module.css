@@ -9,6 +9,7 @@
 .voteContainer button{
     font-size:2em;
     flex:1;
+    border: 1px solid var(--lightmedium);
     box-shadow:0 4px 10px rgba(0, 0, 0, 0.2) ;
 }
 

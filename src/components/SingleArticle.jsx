@@ -29,6 +29,7 @@ const SingleArticle = () => {
    }
    
     useEffect(()=>{
+        setIsLoading(true)
         Promise.all([getArticleById(article_id),getArticleComments(article_id)])
         .then(([singleArticleData,comments])=>{
             setError(null)
@@ -47,7 +48,6 @@ const SingleArticle = () => {
     return ( 
         <>
         {isLoading&&<p>Loading...</p> }
-        {error && <Error error={error} />}
         <nav className={styles.nav}>
             <ul>
                 <li>
@@ -65,6 +65,8 @@ const SingleArticle = () => {
                 </li>
             </ul>
         </nav>
+       
+       
         
         {expand && 
             <div className={styles.expand}>
@@ -87,7 +89,7 @@ const SingleArticle = () => {
                 </ul>
               </div> }
 
-            
+              {error && <Error error={error} />}    
 
          <div className={styles.routing}>
             <Routes>
@@ -112,3 +114,7 @@ const SingleArticle = () => {
 }
  
 export default SingleArticle;
+
+
+
+
