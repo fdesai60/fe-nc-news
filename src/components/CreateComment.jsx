@@ -10,13 +10,7 @@ const CreateComment = ({article_id,setComments}) =>
     const [isLoading, setIsLoading] = useState(false);
     const [error,setError]=useState(null)
     const [searchTerm,setSearchTerm] = useState("")
-    const [isClicked,setIsClicked]=useState(false)
-    const handleClick=()=>{
-        setIsClicked((curr)=>{
-            return !curr
-        })
-    }
-
+   
     const handleInput=(e)=>{
         setSearchTerm(e.target.value)
     }
@@ -45,14 +39,10 @@ const CreateComment = ({article_id,setComments}) =>
     
  
     return ( 
-
         <>
-           
-
             {isLoading&&<p>Loading...</p>}
             {error && <Error error={error} />}
-            <button onClick={handleClick}>Add your own comment</button>
-            <form  className={ isClicked?styles.dispForm:styles.hideForm} onSubmit={handleSubmit} >
+            <form  className={styles.dispForm} onSubmit={handleSubmit} >
                 <textarea
                 name="add-comment"
                 id="add-comment" 

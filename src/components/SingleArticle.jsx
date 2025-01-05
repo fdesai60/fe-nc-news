@@ -18,11 +18,16 @@ const SingleArticle = () => {
     const [comments,setComments]=useState([])
     const [votes,setVotes]=useState(0)
     const [expand,setExpand]=useState(false)
+    const [chosenComSect,setChosenComSect]= useState("view")
 
    const handleCommentsClick=(e)=>{
         setExpand(curr=>!curr)
    }
 
+   const handleChosen=(optn)=>{
+        setChosenComSect(optn)
+   }
+   
     useEffect(()=>{
         Promise.all([getArticleById(article_id),getArticleComments(article_id)])
         .then(([singleArticleData,comments])=>{
@@ -65,17 +70,24 @@ const SingleArticle = () => {
             <div className={styles.expand}>
                 <ul>
                   <li>
-                    <NavLink to={`/articles/${article_id}/comments/view`}
-                    >View Comments</NavLink>
+                   <button onClick={()=>{
+                    handleChosen("view")
+                   }}>View comments</button>
                   </li>
                   <li>
-                    <NavLink to={`/articles/${article_id}/comments/add`}>Add Comments </NavLink>
+                    <button onClick={()=>{
+                    handleChosen("add")
+                   }}>Add Comments</button>
                   </li>
                   <li>
-                    <NavLink to={`/articles/${article_id}/comments/delete`}>Delete Comment</NavLink>
+                    <button onClick={()=>{
+                    handleChosen("delete")
+                   }}>Delete Comment</button>
                   </li>
                 </ul>
               </div> }
+
+            
 
          <div className={styles.routing}>
             <Routes>
@@ -85,11 +97,12 @@ const SingleArticle = () => {
                 />
                 <Route
                     path="/comments"
-                    element={<SingleArtComments comments={comments} />}
+                    element={<SingleArtComments comments={comments} 
+                    chosenComSect={chosenComSect} setComments={setComments} article_id={article_id} />}
                 />
                 <Route
                     path="/vote"
-                    element={<SingleArtVotes votes={votes} setVotes={setVotes} />}
+                    element={<SingleArtVotes votes={votes} setVotes={setVotes} singleArticle={singleArticle} />}
                 />
             </Routes>
          </div>

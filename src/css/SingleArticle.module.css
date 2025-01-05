@@ -42,8 +42,10 @@
     
 }
 
-.expand ul li a{
+.expand ul li button{
     color:var(--lightest);
+    background-color: var(--dark);
+    border:none
 }
 
 

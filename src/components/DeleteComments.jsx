@@ -8,13 +8,8 @@ const DeleteComments = ({comments}) => {
     const {username}=useContext(UsernameContext)
     const [myComments,setMyComments]=useState([])
     const [error,setError]=useState(null)
-    const [isHidden,setIsHidden]= useState(true)
     const [isLoading, setIsLoading] = useState(false);
 
-    const handleDisplay=()=>{
-        setIsHidden(curr=>!curr)
-        
-    }
     const handleDelete=(id)=>{
         setIsLoading(true)
        deleteComment(id)
@@ -33,24 +28,32 @@ const DeleteComments = ({comments}) => {
         setMyComments(comments.filter((comm) => comm.author === username));  
     }, [comments,username]);
 
-
+    
     
     return ( 
         <>
         {isLoading&&<p>Loading...</p>}
         {error && <Error error={error} />}
-        <button onClick={handleDisplay}>{isHidden?"View my comments":"Hide my comments"}</button>
-       {!isHidden && myComments.length>0?
-       (<ul>
-           {myComments.map(myComm=>{
-               return <li className={styles.commentLi} key={myComm.comment_id}>
-                   <CommentCard comment ={myComm}/>
-                   <button className={styles.delButton} onClick={()=>handleDelete(myComm.comment_id)} >🗑️</button>
-                   </li>
-
-
-           })}
-        </ul>):!isHidden?<p>Make your first comment on this article!</p>:null}
+        <div className="delComments">
+            { myComments.length>0
+            ? (
+            <ul>
+                {myComments.map(myComm=>{
+                    return <li 
+                    className={styles.commentLi} key={myComm.comment_id}>
+                        <CommentCard comment ={myComm}/>
+                        <button className={styles.delButton} 
+                            onClick={()=>{
+                                handleDelete(myComm.comment_id)
+                                } }>🗑️
+                        </button>
+                     </li>
+                })}
+            </ul>
+            ):
+            <p>Make your first comment on this article!</p>
+            }
+        </div>
    </>
     );
 }
