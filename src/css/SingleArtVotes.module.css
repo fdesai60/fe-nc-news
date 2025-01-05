@@ -1,14 +1,27 @@
 .voteContainer{
-    display: flex;
-    justify-content: space-evenly;
-    width: 90%;
-    margin:0 auto
+    display:flex;
+    justify-content: center;
+    gap:1em;
+    margin: 0.5em;
+    width:60%;
+    margin:0 auto;
+}
+.voteContainer button{
+    font-size:2em;
+    flex:1;
+    box-shadow:0 4px 10px rgba(0, 0, 0, 0.2) ;
 }
 
-.voteContainer *{
-    flex:1;
-    border-radius: 0.5em;
+.num{
     font-size: 2em;
-    
+}
+
+.voteMsg{
+   font-size: 1.2em;
+    color:var(--dark);
+    padding:1em;
+    border-radius:0.5em;
+    display: inline-block;
+
 }
 
