@@ -8,7 +8,11 @@ const Header = () => {
     }
     return ( 
         <header className={styles.header}>
-            <h1>NEWS</h1>
+            <h1>
+                <span className="material-symbols-outlined">
+                    description
+                </span>NEWS
+            </h1>
             <nav className={styles.headerNav}>
                 <NavLink className={handleActive} to="/login">Login </NavLink>
                 <NavLink className={handleActive}  to="/">Topics</NavLink>

@@ -8,20 +8,21 @@
     margin:0.2em;
     border-radius:0.5em;
     background-color: var(--lightmedium);
+    transition: all 500ms;
     
 }
 
 .eachTopic:hover{
     background-color:var(--dark);
-    color:var(--medium)
     
   
 }
 
 .eachTopic:hover *{
     color:var(--lightest);
+
 }
 
 .eachTopic:hover h3{
-    font-size: 1.8em;
+    font-size: 1.5em;
 }

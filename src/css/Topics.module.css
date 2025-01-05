@@ -1,3 +1,10 @@
-.h2{
-    color:var(--medium)
+.welcome h2{
+    color:var(--medium);
+    margin-top: 0.6em;
+    margin-bottom:0
+    
+}
+
+.welcome p{
+    margin:0.2em
 }

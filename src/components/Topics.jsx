@@ -35,8 +35,8 @@ const Topics = () => {
         <>
             {error&& <Error err={error}/>}
             {isLoading&&<p>Loading...</p> }
-            <div>
-                <h2 className={styles.h2}>{`Hey ${username},`} Pick a topic to read</h2>
+            <div className={styles.welcome}>
+                <h2 >{`Hey ${username},`} Pick a topic to read</h2>
                 <p>NOTE: You're currently using a guest account. If you already have an account, feel free to log in! </p>
                 <TopicList topics={topics}/>
             </div>

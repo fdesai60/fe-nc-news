@@ -1,3 +1,8 @@
+.topicContainer{
+    width:70%;
+    margin:0 auto
+}
+
 .topicContainer > *{
  padding:0
   }
