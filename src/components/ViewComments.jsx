@@ -12,6 +12,7 @@ const ViewComments = ({comments}) => {
                     <CommentCard comment={comment}/>
                     </li>
                     })
+                    
             
                 }
             </ul>
