@@ -74,17 +74,17 @@ const SingleArticle = () => {
                   <li>
                    <button onClick={()=>{
                     handleChosen("view")
-                   }}>View comments</button>
+                   }}>View all comments</button>
                   </li>
                   <li>
                     <button onClick={()=>{
                     handleChosen("add")
-                   }}>Add Comments</button>
+                   }}>Add a comment</button>
                   </li>
                   <li>
                     <button onClick={()=>{
                     handleChosen("delete")
-                   }}>Delete Comment</button>
+                   }}>Delete my comment</button>
                   </li>
                 </ul>
               </div> }
