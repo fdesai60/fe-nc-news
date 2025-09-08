@@ -1,4 +1,134 @@
 # FastReads News Website
+## Project Screenshots
+
+## Screenshots & Features
+
+---
+
+## Screenshots & Features
+
+### 1. User Login & Guest Accounts
+**1.1 Guest view**  
+When browsing without signing in, users are automatically assigned a **guest account** with the username **cooljmessy**.  
+Any comments added while browsing as a guest will appear under this name.  
+
+<div align="center">
+  <img src="assets/01-topics.png" width="400px">
+</div>
+
+**1.2 Logged in user**  
+Sign in with an existing account.
+
+<div align="center">
+  <img src="assets/15-login.png" width="400px">
+</div>
+
+---
+
+### 2. Topics Page
+**2.1 No topic selected**  
+Displays all topics.  
+
+<div align="center">
+  <img src="assets/01-topics.png" width="300px">
+</div>
+
+**2.2 Topic selected**  
+Highlights the selected topic.  
+
+<div align="center">
+  <img src="assets/02-select-topic.png" width="300px">
+</div>
+
+---
+
+### 3. Articles Page
+**3.1 All articles for selected topic**  
+Shows all articles under the chosen topic. Users can sort by **date, author, or votes**.  
+
+<div align="center">
+  <img src="assets/03-articles.png" width="300px">
+</div>
+
+**3.2 Selected article highlighted**  
+The article you select is visually distinguished in a different color.  
+
+<div align="center">
+  <img src="assets/04-select-art.png" width="300px">
+</div>
+
+---
+
+### 4. Reading a Single Article
+**4.1 Full article view**  
+Displays the full text of the chosen article.  
+
+<div align="center">
+  <img src="assets/05-art-read.png" width="300px">
+</div>
+
+**4.2 View comments dropdown**  
+Clicking the comments button shows options to **view, add, or delete comments**.  
+Clicking again hides these options.  
+
+<div align="center">
+  <img src="assets/08-hide-dropdown.png" width="300px">
+</div>
+
+---
+
+### 5. Adding and Viewing Comments
+**5.1 Send a comment**  
+Users can write a comment for the article.  
+
+<div align="center">
+  <img src="assets/09-send-comm.png" width="300px">
+</div>
+
+**5.2 Sending feedback**  
+Displays a temporary “sending” state while the comment is being processed.  
+
+<div align="center">
+  <img src="assets/10-comm-sending-msg.png" width="300px">
+</div>
+
+**5.3 Comment added**  
+Shows the newly added comment in the list.  
+> Reminder: The comment will display **your username**.  
+> If browsing as a guest, this will appear as **cooljmessy**.
+
+<div align="center">
+  <img src="assets/11-see-comm-added.png" width="300px">
+</div>
+
+**5.4 Delete comment**  
+Users can only delete **their own comments**. Comments written by others cannot be deleted.  
+
+<div align="center">
+  <img src="assets/12-del-comment.png" width="300px">
+</div>
+
+---
+
+### 6. Voting
+**6.1 Upvote an article**  
+Users can vote on articles.  
+
+<div align="center">
+  <img src="assets/13-vote.png" width="300px">
+</div>
+
+**6.2 After voting**  
+Displays a message confirming the vote and disables further voting.  
+
+<div align="center">
+  <img src="assets/14-voted.png" width="300px">
+</div>
+
+
+
+
+
 
 ## Browse through a range of articles, while also being able to comment and vote
 
