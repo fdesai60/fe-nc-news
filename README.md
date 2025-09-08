@@ -1,7 +1,7 @@
 # FastReads News Website
-## Project Screenshots
 
-## Screenshots & Features
+<a href="https://fastreads.netlify.app/" target="_blank">🌐 Check Out My Live Deployed App!</a>     
+<a href="https://github.com/fdesai60/be-nc-news" target="_blank">💻 Explore the Backend I Built!</a>
 
 ---
 
@@ -13,14 +13,14 @@ When browsing without signing in, users are automatically assigned a **guest acc
 Any comments added while browsing as a guest will appear under this name.  
 
 <div align="center">
-  <img src="assets/01-topics.png" width="400px">
+  <img src="assets/01-topics.png" width="600px">
 </div>
 
 **1.2 Logged in user**  
 Sign in with an existing account.
 
 <div align="center">
-  <img src="assets/15-login.png" width="400px">
+  <img src="assets/15-login.png" width="600px">
 </div>
 
 ---
@@ -30,14 +30,14 @@ Sign in with an existing account.
 Displays all topics.  
 
 <div align="center">
-  <img src="assets/01-topics.png" width="300px">
+  <img src="assets/01-topics.png" width="600px">
 </div>
 
 **2.2 Topic selected**  
 Highlights the selected topic.  
 
 <div align="center">
-  <img src="assets/02-select-topic.png" width="300px">
+  <img src="assets/02-select-topic.png" width="600px">
 </div>
 
 ---
@@ -47,14 +47,14 @@ Highlights the selected topic.
 Shows all articles under the chosen topic. Users can sort by **date, author, or votes**.  
 
 <div align="center">
-  <img src="assets/03-articles.png" width="300px">
+  <img src="assets/03-articles.png" width="600px">
 </div>
 
 **3.2 Selected article highlighted**  
 The article you select is visually distinguished in a different color.  
 
 <div align="center">
-  <img src="assets/04-select-art.png" width="300px">
+  <img src="assets/04-select-art.png" width="600px">
 </div>
 
 ---
@@ -64,7 +64,7 @@ The article you select is visually distinguished in a different color.
 Displays the full text of the chosen article.  
 
 <div align="center">
-  <img src="assets/05-art-read.png" width="300px">
+  <img src="assets/05-art-read.png" width="600px">
 </div>
 
 **4.2 View comments dropdown**  
@@ -72,7 +72,7 @@ Clicking the comments button shows options to **view, add, or delete comments**.
 Clicking again hides these options.  
 
 <div align="center">
-  <img src="assets/08-hide-dropdown.png" width="300px">
+  <img src="assets/08-hide-dropdown.png" width="600px">
 </div>
 
 ---
@@ -82,14 +82,14 @@ Clicking again hides these options.
 Users can write a comment for the article.  
 
 <div align="center">
-  <img src="assets/09-send-comm.png" width="300px">
+  <img src="assets/09-send-comm.png" width="600px">
 </div>
 
 **5.2 Sending feedback**  
 Displays a temporary “sending” state while the comment is being processed.  
 
 <div align="center">
-  <img src="assets/10-comm-sending-msg.png" width="300px">
+  <img src="assets/10-comm-sending-msg.png" width="600px">
 </div>
 
 **5.3 Comment added**  
@@ -98,14 +98,14 @@ Shows the newly added comment in the list.
 > If browsing as a guest, this will appear as **cooljmessy**.
 
 <div align="center">
-  <img src="assets/11-see-comm-added.png" width="300px">
+  <img src="assets/11-see-comm-added.png" width="600px">
 </div>
 
 **5.4 Delete comment**  
 Users can only delete **their own comments**. Comments written by others cannot be deleted.  
 
 <div align="center">
-  <img src="assets/12-del-comment.png" width="300px">
+  <img src="assets/12-del-comment.png" width="600px">
 </div>
 
 ---
@@ -115,24 +115,16 @@ Users can only delete **their own comments**. Comments written by others cannot 
 Users can vote on articles.  
 
 <div align="center">
-  <img src="assets/13-vote.png" width="300px">
+  <img src="assets/13-vote.png" width="600px">
 </div>
 
 **6.2 After voting**  
 Displays a message confirming the vote and disables further voting.  
 
 <div align="center">
-  <img src="assets/14-voted.png" width="300px">
-</div>
+  <img src="assets/14-voted.png" width="600px">
+</div>  
 
-
-
-
-
-
-## Browse through a range of articles, while also being able to comment and vote
-
-Visit my deployed version: https://fastreads.netlify.app/
 
 ---
 
@@ -210,12 +202,6 @@ Current features include:
 - **Frontend**: React (with Vite for development)
 - **Backend**: Node.js (minimum version v22.9.0) and Express.js
 - **Database**: PostgreSQL
-
----
-
-## Backend repo
-
-Visit my backend on github: https://github.com/fdesai60/be-nc-news
 
 ---
 
