@@ -28,7 +28,7 @@ const Footer = () => {
                         </li>
                     
             </ul>
-            <p>©2024 news. All rights reserved</p>
+            <p>©2025 news. All rights reserved</p>
        </footer>
      );
 }
